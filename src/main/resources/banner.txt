@@ -1,0 +1,7 @@
+${AnsiColor.BRIGHT_BLUE}
+${AnsiColor.BRIGHT_BLUE} .__                 _____
+${AnsiColor.BRIGHT_BLUE} |  |   ____ _____ _/ ____\  ${info.app.version}
+${AnsiColor.BRIGHT_BLUE} |  | _/ __ \\__  \\   __\   address:${server.address}
+${AnsiColor.BRIGHT_BLUE} |  |_\  ___/ / __ \|  |     port:${server.port}
+${AnsiColor.BRIGHT_BLUE} |____/\___  >____  /__|
+${AnsiColor.BRIGHT_BLUE}           \/     \/${AnsiColor.DEFAULT}

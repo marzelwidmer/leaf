@@ -1,0 +1,28 @@
+/logging-store-server/logging-store-server.iml
+# Eclipse
+/.classpath
+/.project
+/.settings/
+/bin/
+
+# IntelliJ
+/.idea/
+*.iml
+/*.ipr
+/*.iws
+
+# Maven
+/log/
+target/
+.DS_Store/
+
+# node
+.sass-cache
+.tmp
+bower_components
+dist/
+node
+node_modules/
+/logging-store-server/src/main/frontend/.bowerrc
+/logging-store-server/src/main/resources/static/
+
