@@ -25,9 +25,11 @@ module.exports = function (grunt) {
     models:  grunt.option('models-dir') || 'model',
     vendor:  grunt.option('vendor-dir') || 'vendor',
     browser: grunt.option('browser')    || 'Chrome',
+    origin:  grunt.option('origin')     || 'https://portal.helsana-u1-test.ch',
     apiMode: grunt.option('api-mode')   || 'mock'
   };
 
+  grunt.option('origin', grunt.option('origin') || config.origin);
   grunt.option('api-mode', grunt.option('api-mode') || config.apiMode);
 
   // Measure timings only when requested via --profile
@@ -49,7 +51,7 @@ module.exports = function (grunt) {
       livereload.changed({
         body: {
           files: [
-            '.tmp/styles/leaf.css'
+            '.tmp/styles/loggingstore.css'
           ]
         }
       });

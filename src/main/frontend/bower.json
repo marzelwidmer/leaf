@@ -1,6 +1,6 @@
 {
-  "name": "leaf",
-  "version": "0.0.1",
+  "name": "logging-store",
+  "version": "1.0.0",
   "authors": [
     "Marcel Widmer <marzelwidmer@gmail.com>"
   ],
@@ -18,7 +18,7 @@
     "angular-clipboard": "~1.1.2"
   },
   "appPath": "app",
-  "moduleName": "leaf",
+  "moduleName": "loggingStore",
   "overrides": {
     "bootstrap": {
       "main": [

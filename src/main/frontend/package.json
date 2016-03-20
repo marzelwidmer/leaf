@@ -1,9 +1,9 @@
 {
-  "name": "Leaf-Frontend",
-  "version": "0.0.1",
+  "name": "LoggingStore-Frontend",
+  "version": "0.1.0",
   "license": "LicenseRef-LICENSE",
   "private": true,
-  "description": "Frontend component of the Leaf application",
+  "description": "Frontend component of the Logging Store application",
   "devDependencies": {
     "bower": "^1.6.5",
     "canonical-path": "0.0.2",
