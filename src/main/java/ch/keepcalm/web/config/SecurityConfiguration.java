@@ -17,12 +17,19 @@ import static org.springframework.util.ObjectUtils.isEmpty;
 
 /**
  * Created by marcelwidmer on 20/03/16.
+ *
+ * @EnableWebSecurity to enable Spring Security’s web security support and provide the Spring MVC integration
  */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     /**
+     * The following paths are not require any authentication
+     * <ul>
+     * <li>"/"</li>
+     * <li>"/home"</li>
+     * </ul>
      *
      * @param http
      * @throws Exception
@@ -31,7 +38,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/home").permitAll()
+                .antMatchers("/", "/home").permitAll() // exclusion of security
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -42,20 +49,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .permitAll();
     }
 
-    /**
-     *
-     * @param auth
-     * @throws Exception
-     */
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-                .inMemoryAuthentication()
-                .withUser("user").password("password").roles("USER");
-    }
 
     /**
-     *
      * @param env
      * @param auth
      * @param dataSource
@@ -69,10 +64,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                                                    @Value("${spring.jpa.properties.hibernate.default_schema:}")
                                                            String hibernateDefaultSchema) throws Exception {
         if (env.acceptsProfiles("local")) {
-            auth.inMemoryAuthentication()
-                    .withUser("user").password("welcome1").roles("USER")
-                    .and()
-                    .withUser("admin").password("Welcome1_").roles("SUPERUSER");
+            auth
+                    .inMemoryAuthentication()
+                    .withUser("user").password("password").roles("USER");
 
         } else {
             JdbcUserDetailsManagerConfigurer<AuthenticationManagerBuilder> configurer = new JdbcUserDetailsManagerConfigurer<>();
