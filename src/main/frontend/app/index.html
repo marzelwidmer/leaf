@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="LoggingStore">
+<head>
+  <title>logging store</title>
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="../bower_components/angular-ui-grid/ui-grid.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <link rel="stylesheet" href="styles/loggingstore.css"/>
+
+  <!-- build:js scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script src="../bower_components/angular-route/angular-route.js"></script>
+  <script src="../bower_components/angular-resource/angular-resource.js"></script>
+  <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="../bower_components/angular-ui-grid/ui-grid.js"></script>
+  <script src="../bower_components/ui-router/release/angular-ui-router.js"></script>
+  <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="../bower_components/angular-clipboard/angular-clipboard.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js scripts/loggingstore.js -->
+  <script src="app.js"></script>
+  <script src="services/dashboardService.js"></script>
+  <script src="services/resource/envResource.js"></script>
+  <script src="services/resource/infoResource.js"></script>
+  <script src="services/resource/logEntryResource.js"></script>
+  <script src="services/resource/searchResource.js"></script>
+  <script src="controller/dashboardController.js"></script>
+  <script src="controller/detailsController.js"></script>
+  <script src="controller/navbarController.js"></script>
+  <!-- endbuild -->
+
+</head>
+
+<body>
+
+
+<div class="container">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top" ng-controller="NavBarController">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#/">Logging Store <span class="ng-cloak">{{appVersion}}</span></a>
+      </div>
+      <div class="navbar-collapse collapse" id="navbar-main">
+        <ul class="nav navbar-nav">
+          <li><a href="#/">Dashboard <span class="sr-only">(current)</span></a></li>
+          <li><a href="#/api">API</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li class="ng-cloak"><span id="profiles" class="navbar-text" title="{{database}}">
+            {{profiles.join(', ')}}
+          </span></li>
+          <li><a href="logout" class="glyphicon glyphicon-log-out"></a></li>
+        </ul>
+
+      </div>
+
+    </div>
+  </div>
+
+  <ng-view></ng-view>
+</div>
+
+</body>
+</html>
