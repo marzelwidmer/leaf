@@ -51,7 +51,7 @@ module.exports = function (grunt) {
       livereload.changed({
         body: {
           files: [
-            '.tmp/styles/loggingstore.css'
+            '.tmp/styles/leaf.css'
           ]
         }
       });

@@ -23,6 +23,6 @@ bower_components
 dist/
 node
 node_modules/
-/logging-store-server/src/main/frontend/.bowerrc
-/logging-store-server/src/main/resources/static/
+/src/main/frontend/.bowerrc
+/src/main/resources/static/
 
