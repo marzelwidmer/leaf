@@ -21,11 +21,6 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
-
-		<!-- Versions: dependencies -->
-		<frontend-maven-plugin.version>0.0.26</frontend-maven-plugin.version>
-		<frontend-maven-plugin.nodeVersion>v4.2.2</frontend-maven-plugin.nodeVersion>
-		<frontend-maven-plugin.npmVersion>3.3.12</frontend-maven-plugin.npmVersion>
 	</properties>
 
 	<dependencies>
@@ -68,63 +63,6 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-
-			<plugin>
-				<groupId>com.github.eirslett</groupId>
-				<artifactId>frontend-maven-plugin</artifactId>
-				<version>${frontend-maven-plugin.version}</version>
-				<!-- optional -->
-				<configuration>
-					<workingDirectory>src/main/frontend</workingDirectory>
-				</configuration>
-				<executions>
-					<!-- Install Node And NPM -->
-					<execution>
-						<id>install node and npm</id>
-						<goals>
-							<goal>install-node-and-npm</goal>
-						</goals>
-						<configuration>
-							<nodeVersion>${frontend-maven-plugin.nodeVersion}</nodeVersion>
-							<npmVersion>${frontend-maven-plugin.npmVersion}</npmVersion>
-						</configuration>
-					</execution>
-					<!--  NPM INSTALL -->
-					<execution>
-						<id>npm install</id>
-						<goals>
-							<goal>npm</goal>
-						</goals>
-						<!-- Optional configuration which provides for running any npm command -->
-						<configuration>
-							<arguments>install</arguments>
-						</configuration>
-					</execution>
-					<!-- BOWER INSTALL -->
-					<execution>
-						<id>bower install</id>
-						<goals>
-							<goal>bower</goal>
-						</goals>
-						<configuration>
-							<arguments>install</arguments>
-						</configuration>
-					</execution>
-					<!-- GRUNT BUILD -->
-					<execution>
-						<id>grunt build</id>
-						<goals>
-							<goal>grunt</goal>
-						</goals>
-						<configuration>
-							<arguments>build --no-color</arguments>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
 		</plugins>
 	</build>
-	
-
 </project>
