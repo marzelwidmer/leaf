@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-
-    <title>Spring Framework Guru</title>
+    <title>leaf</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
-    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
-          th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}" rel="stylesheet" media="screen" />
-
+    <!-- jQuery-->
     <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
             th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
 
+    <!-- Bootstrap CSS-->
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}" rel="stylesheet" media="screen" />
+    <!-- leaf CSS-->
     <link href="../static/css/leaf.css" th:href="@{css/leaf.css}" rel="stylesheet" media="screen"/>
 </head>
 <body>
@@ -18,7 +19,7 @@
     <div class="jumbotron">
         <img src="../static/images/leaf.png" width="500" height="200"
              th:src="@{images/leaf.png}"/>
-        <h1>Hello</h1>
+        <h1></h1>
 
         <h2>Fellow Spring Framework Gurus!!!</h2>
     </div>
