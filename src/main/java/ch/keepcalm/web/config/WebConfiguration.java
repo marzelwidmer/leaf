@@ -14,7 +14,7 @@ public class WebConfiguration {
     /**
      * The following Spring Configuration declares the servlet wrapper for the H2 database console and maps it to the path of /console.
      *
-     * @return
+     * @return a h2 WebServlet
      */
     @Bean
     ServletRegistrationBean h2servletRegistration() {
