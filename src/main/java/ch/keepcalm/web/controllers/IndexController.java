@@ -1,4 +1,4 @@
-package ch.keepcalm.web.controller;
+package ch.keepcalm.web.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
