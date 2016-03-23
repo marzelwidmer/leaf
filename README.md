@@ -17,3 +17,9 @@
 [license-url]: LICENSE
 [circle-image]: https://circleci.com/gh/marzelwidmer/leaf.svg?style=shield&circle-token=:circle-token
 [circle-url]: https://circleci.com/gh/marzelwidmer/leaf/tree/develop
+
+
+ [circleci](https://circleci.com/gh/marzelwidmer)
+ [codacy](https://www.codacy.com/app/marzelwidmer/leaf/dashboard)
+
+
