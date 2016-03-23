@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-
-    <title>Spring Framework Guru</title>
-
+    <title>Leaf Create Products</title>
     <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
 </head>
 <body>
 <div class="container">
     <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
-
     <h2>Product Details</h2>
     <div>
         <form class="form-horizontal" th:object="${product}" th:action="@{/product}" method="post">
