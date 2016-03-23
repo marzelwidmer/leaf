@@ -20,7 +20,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>1.7</java.version>
+        <java.version>1.8</java.version>
         <postgresql.version>9.4-1201-jdbc41</postgresql.version>
 
         <bootstrap.version>3.3.4</bootstrap.version>
