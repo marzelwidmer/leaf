@@ -1,0 +1,21 @@
+== Source Code
+=== Controllers
+==== ProductController
+[source,java]
+----
+include::{sourcedir}/ch/keepcalm/web/controllers/ProductController.java[tags=controller,indent=0]
+----
+
+
+=== Services
+==== ProductService
+[source,java]
+----
+include::{sourcedir}/ch/keepcalm/web/services/ProductServiceImpl.java[tags=service,indent=0]
+----
+
+=== Repositories
+==== ProductRepository
+----
+include::{sourcedir}/ch/keepcalm/web/repositories/ProductRepository.java[tags=repository,indent=0]
+----

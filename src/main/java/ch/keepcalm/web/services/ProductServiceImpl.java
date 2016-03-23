@@ -4,13 +4,12 @@ import ch.keepcalm.web.domain.Product;
 import ch.keepcalm.web.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+// tag::service[]
 @Service
 public class ProductServiceImpl implements ProductService {
 
     private ProductRepository productRepository;
 
-    // TODO: 22/03/16 why like this and not just with @Autowired ProductRepository
     @Autowired
     public void setProductRepository(ProductRepository productRepository) {
         this.productRepository = productRepository;
@@ -36,3 +35,5 @@ public class ProductServiceImpl implements ProductService {
         productRepository.delete(id);
     }
 }
+// end::service[]
+

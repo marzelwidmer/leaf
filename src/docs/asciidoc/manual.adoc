@@ -1,0 +1,44 @@
+= Leaf Application {projectversion}
+Marcel Widmer <marzelwidmer@gmail.com>
+2015-03-23
+:revnumber: {project-version}
+:example-caption!:
+ifndef::imagesdir[:imagesdir: images]
+ifndef::sourcedir[:sourcedir: ../java]
+ifndef::testdir[:testdir: ../../test]
+
+:toc: left
+:toclevels: 4
+:icons: font
+
+== Introduction
+The Leaf Application features.
+
+* SpringBoot
+* Thymeleaf
+* Spring-Data
+
+
+== Introduction
+NOTE: This is amazing for a deployment you only have to copy the JAR file to your server and start it with the java -jar command.
+`
+
+include::architecture.adoc[]
+include::installation.adoc[]
+include::sourceCode.adoc[]
+include::releaseNotes.adoc[]
+
+
+== Attributes
+
+.Built-in
+asciidoctor-version:: {asciidoctor-version}
+safe-mode-name:: {safe-mode-name}
+docdir:: {docdir}
+docfile:: {docfile}
+imagesdir:: {imagesdir}
+
+.Custom
+project-version:: {project-version}
+sourcedir:: {sourcedir}
+endpoint-url:: {endpoint-url}

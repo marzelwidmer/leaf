@@ -1,0 +1,41 @@
+
+== Installation
+Copy the file leaf-{project-version}.jar anywhere on the server.
+The JAR already contains the configuration for all available environments.
+
+== Build Application:
+ $ mvn package
+
+== Start Application
+
+=== Default Profile
+Start application on command line. This profile support a H2 datbase.
+ $ java -jar target/leaf-{project-version}.jar &
+
+There are some Spring Profiles
+
+
+=== Development Profile
+This profile support a PostgreSQL database.
+ $ (java -jar -Dspring.profiles.active=local target/leaf-{project-version}.jar &)
+
+=== Profiles
+.Table -Dspring.profiles.active=
+|===
+|Profile | Database
+
+|dev
+|h2
+
+|local
+|postgreSql
+
+|===
+
+== URL's
+=== Monitoring
+    /monitor/
+
+
+=== h2 Console
+    /console/

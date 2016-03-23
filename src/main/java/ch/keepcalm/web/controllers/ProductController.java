@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * Created by marcelwidmer on 22/03/16.
  */
+// tag::controller[]
 @Controller
 public class ProductController {
 
@@ -95,3 +96,5 @@ public class ProductController {
         return "redirect:/products";
     }
 }
+// end::controller[]
+
