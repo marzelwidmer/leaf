@@ -23,3 +23,6 @@
  [codacy](https://www.codacy.com/app/marzelwidmer/leaf/dashboard)
 
 
+
+
+[![Join the chat at https://gitter.im/marzelwidmer/leaf](https://badges.gitter.im/marzelwidmer/leaf.svg)](https://gitter.im/marzelwidmer/leaf?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
