@@ -17,14 +17,12 @@
                         <li><a href="#" th:href="@{/console}" target="_blank">h2 console</a></li>
                     </ul>
                 </div>
-                <div class="row text-right col-centered" th:if="${@environment.getActiveProfiles()[0] != 'production'}">
-                    <div class="center-block ">
-                            <span th:text="${@environment.getProperty('info.app.version')}"></span>
-                    </div>
+                <div class="row text-right" th:if="${@environment.getActiveProfiles()[0] != 'production'}">
+                    <br/>
+                    <span th:text="${@environment.getProperty('info.app.version')}"></span>
                 </div>
             </div>
         </nav>
-
     </div>
 </div>
 </body>
