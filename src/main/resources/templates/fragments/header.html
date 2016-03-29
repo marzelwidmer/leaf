@@ -14,25 +14,17 @@
                     <ul class="nav navbar-nav">
                         <li><a href="#" th:href="@{/products}">Products</a></li>
                         <li><a href="#" th:href="@{/product/new}">Create Product</a></li>
+                        <li><a href="#" th:href="@{/console}" target="_blank">h2 console</a></li>
                     </ul>
-
+                </div>
+                <div class="row text-right col-centered" th:if="${@environment.getActiveProfiles()[0] != 'production'}">
+                    <div class="center-block ">
+                            <span th:text="${@environment.getProperty('info.app.version')}"></span>
+                    </div>
                 </div>
             </div>
         </nav>
 
-        <div class="jumbotron">
-            <div class="row text-center">
-                <div class="">
-                    <h2>Spring Framework Guru</h2>
-
-                    <h3>Spring Boot Web App</h3>
-                </div>
-            </div>
-            <div class="row text-center">
-                <img src="../../static/images/NewBannerBOOTS_2.png" width="400"
-                     th:src="@{/images/NewBannerBOOTS_2.png}"/>
-            </div>
-        </div>
     </div>
 </div>
 </body>

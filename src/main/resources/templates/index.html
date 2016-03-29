@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
     <title>Leaf</title>
     <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
@@ -7,6 +7,22 @@
 <body>
 <div class="container">
     <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <div class="jumbotron">
+        <div class="row text-center">
+            <div class="">
+                <h2>Leaf Application</h2>
+            </div>
+        </div>
+        <div class="row text-center">
+            <img src="../../static/images/leaf.png" width="200"
+                 th:src="@{/images/leaf.png}"/>
+        </div>
+        <div class="row text-center">
+            <div class="">
+                <h3>Spring Boot Web App</h3>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>
