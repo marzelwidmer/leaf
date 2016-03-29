@@ -19,7 +19,9 @@
         </div>
         <div class="row text-center">
             <div class="">
-                <h3>Spring Boot Web App</h3>
+                <h3>
+                    <span th:text="${@environment.getProperty('info.app.description')}"></span>
+                </h3>
             </div>
         </div>
     </div>
