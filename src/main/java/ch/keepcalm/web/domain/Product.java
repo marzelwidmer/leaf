@@ -1,8 +1,12 @@
 package ch.keepcalm.web.domain;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-
-import javax.persistence.*;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Version;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
 /**
@@ -18,9 +22,12 @@ public class Product {
     @Version
     private Integer version;
 
+    @Size(min=1, max=30)
     private String productId;
+    @Size(min=2, max=30)
     private String description;
     private String imageUrl;
+    @NotNull
     private BigDecimal price;
 
     public String getDescription() {

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>Leaf Error</title>
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+
+    <h1>Error Page</h1>
+    <p>Application has encountered an error. Please contact support on ...</p>
+
+    <p>Failed URL : <span th:text="${requestUri}"></span></p>
+    <p>Error : <span th:text="${errorMessage}"></span></p>
+    <p>Exception : <span th:text="${exceptionMessage}"></span></p>
+
+</div>
+
+</body>
+</html>
