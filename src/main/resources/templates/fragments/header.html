@@ -20,6 +20,7 @@
                 <div class="row text-right" th:if="${@environment.getActiveProfiles()[0] != 'production'}">
                     <br/>
                     <span th:text="${@environment.getProperty('info.app.version')}"></span>
+                    <span th:text="#{i18n.hello}"></span>
                 </div>
             </div>
         </nav>
