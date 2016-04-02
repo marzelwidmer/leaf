@@ -5,15 +5,34 @@
     <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
 </head>
 <body>
-<div class="container">
+<div class="container" th:inline="text">
     <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
 
     <h1>Error Page</h1>
     <p>Application has encountered an error. Please contact support on ...</p>
-
     <p>Failed URL : <span th:text="${requestUri}"></span></p>
     <p>Error : <span th:text="${errorMessage}"></span></p>
     <p>Exception : <span th:text="${exceptionMessage}"></span></p>
+
+
+
+    <!-- test ${requestUri} [[${requestUri}]] -->
+    <p>Hello, [[${requestUri}]]!</p>
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        var uri = /*[[${requestUri}]]*/ 'requestURIk';
+        /*]]>*/
+    </script>
+    <span th:inline="javascript">
+        <![CDATA[*/
+        var uri = /*[[${requestUri}]]*/ 'requestURIk';
+        /*]]>
+    </span>
+    <span th:inline="text" th:remove="tag" >>
+        */
+        /* ok [[${requestUri}]]*/
+        /*
+    </span>
 </div>
 
 </body>
