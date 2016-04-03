@@ -9,11 +9,12 @@
     <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
     <h1>Error Page</h1>
     <p>Application has encountered an error. Please contact support on ...</p>
-    <!--
+
+    <div class="hidden">
     <p>Failed URL : <span th:text="${requestUri}"></span></p>
     <p>Error : <span th:text="${errorMessage}"></span></p>
     <p>Exception : <span th:text="${exceptionMessage}"></span></p>
-    -->
+    </div>
  </div>
 
  </body>

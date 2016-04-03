@@ -5,9 +5,12 @@ import ch.keepcalm.web.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.validation.Valid;
 
 /**
  * Created by marcelwidmer on 22/03/16.
@@ -23,7 +26,20 @@ public class ProductController {
     public void setProductService(ProductService productService) {
         this.productService = productService;
     }
+/*
 
+
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    public String addNewPost(@Valid Post post, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            return "index";
+        }
+        model.addAttribute("title", post.getTitle());
+        model.addAttribute("content", post.getContent());
+        return "result";
+    }
+
+*/
 
     /**
      * displaying the create product form.
@@ -43,7 +59,10 @@ public class ProductController {
      * @return
      */
     @RequestMapping(value = "product", method = RequestMethod.POST)
-    public String saveProduct(Product product){
+    public String saveProduct(@Valid Product product, BindingResult bindingResult){
+        if (bindingResult.hasErrors()) {
+            return "productform";
+        }
         productService.saveProduct(product);
         return "redirect:/product/" + product.getId();
     }
