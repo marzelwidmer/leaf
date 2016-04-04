@@ -1,4 +1,4 @@
-package ch.keepcalm.web.configuration;
+package ch.keepcalm.web.config;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.orm.jpa.EntityScan;

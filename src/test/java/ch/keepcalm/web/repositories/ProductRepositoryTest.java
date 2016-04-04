@@ -1,6 +1,6 @@
 package ch.keepcalm.web.repositories;
 
-import ch.keepcalm.web.configuration.RepositoryConfiguration;
+import ch.keepcalm.web.config.RepositoryConfiguration;
 import ch.keepcalm.web.domain.Product;
 import org.junit.Test;
 import org.junit.runner.RunWith;
