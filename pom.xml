@@ -72,10 +72,10 @@
         </dependency>
 
         <!-- Flyway-->
-        <dependency>
+        <!--<dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
-        </dependency>
+        </dependency>-->
         <!-- h2 database-->
         <dependency>
             <groupId>com.h2database</groupId>
