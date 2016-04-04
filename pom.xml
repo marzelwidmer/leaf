@@ -26,6 +26,7 @@
         <bootstrap.version>3.3.4</bootstrap.version>
         <jquery.version>2.1.4</jquery.version>
 
+        <jgitflow-maven-plugin.version>1.0-m5.1</jgitflow-maven-plugin.version>
         <maven-site-plugin.version>3.4</maven-site-plugin.version>
         <asciidoctor.maven.plugin.version>1.5.3</asciidoctor.maven.plugin.version>
         <asciidoctorj-pdf.version>1.5.0-alpha.7</asciidoctorj-pdf.version>
@@ -71,11 +72,12 @@
             <version>${jquery.version}</version>
         </dependency>
 
-        <!-- Flyway-->
-        <!--<dependency>
-            <groupId>org.flywaydb</groupId>
-            <artifactId>flyway-core</artifactId>
-        </dependency>-->
+        <!-- jGitFlow -->
+        <dependency>
+            <groupId>external.atlassian.jgitflow</groupId>
+            <artifactId>jgitflow-maven-plugin</artifactId>
+            <version>${jgitflow-maven-plugin.version}</version>
+        </dependency>
         <!-- h2 database-->
         <dependency>
             <groupId>com.h2database</groupId>
@@ -126,6 +128,16 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <!-- jGitFlow -->
+            <plugin>
+                <groupId>external.atlassian.jgitflow</groupId>
+                <artifactId>jgitflow-maven-plugin</artifactId>
+                <version>${jgitflow-maven-plugin.version}</version>
+                <configuration>
+                    <!-- see goals wiki page for configuration options -->
+                </configuration>
             </plugin>
         </plugins>
     </build>
