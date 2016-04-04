@@ -71,6 +71,11 @@
             <version>${jquery.version}</version>
         </dependency>
 
+        <!-- Flyway-->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+        </dependency>
         <!-- h2 database-->
         <dependency>
             <groupId>com.h2database</groupId>
