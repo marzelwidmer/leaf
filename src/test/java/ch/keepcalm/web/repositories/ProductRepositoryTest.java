@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.math.BigDecimal;
 import static org.junit.Assert.assertEquals;
@@ -27,6 +28,7 @@ import static org.junit.Assert.assertNull;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = {RepositoryConfiguration.class})
+@ActiveProfiles("junit")
 public class ProductRepositoryTest {
 
     private ProductRepository productRepository;
@@ -69,7 +71,7 @@ public class ProductRepositoryTest {
 
         //verify count of products in DB
         long productCount = productRepository.count();
-        assertEquals(productCount, 1);
+        assertEquals(1,productCount);
 
         //get all products, list should only have one
         Iterable<Product> products = productRepository.findAll();
