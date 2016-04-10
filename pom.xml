@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>leaf</name>
-    <description>Sample project Thymeleaf</description>
+    <description>The ${project.name} is a sample project for Thymeleaf.</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
