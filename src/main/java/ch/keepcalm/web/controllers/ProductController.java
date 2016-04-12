@@ -26,20 +26,6 @@ public class ProductController {
     public void setProductService(ProductService productService) {
         this.productService = productService;
     }
-/*
-
-
-    @RequestMapping(value = "/", method = RequestMethod.POST)
-    public String addNewPost(@Valid Post post, BindingResult bindingResult, Model model) {
-        if (bindingResult.hasErrors()) {
-            return "index";
-        }
-        model.addAttribute("title", post.getTitle());
-        model.addAttribute("content", post.getContent());
-        return "result";
-    }
-
-*/
 
     /**
      * displaying the create product form.
@@ -48,7 +34,7 @@ public class ProductController {
      */
     @RequestMapping("product/new")
     public String newProduct(Model model){
-        model.addAttribute("product", new Product());
+        model.addAttribute("product",  Product.newBuilder().build());
         return "productform";
     }
 

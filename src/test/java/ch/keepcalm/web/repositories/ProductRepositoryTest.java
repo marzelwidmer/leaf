@@ -32,7 +32,6 @@ import static org.junit.Assert.assertNull;
 public class ProductRepositoryTest {
 
     private ProductRepository productRepository;
-
     @Autowired
     public void setProductRepository(ProductRepository productRepository) {
         this.productRepository = productRepository;
@@ -41,10 +40,11 @@ public class ProductRepositoryTest {
     @Test
     public void testSaveProduct(){
         //setup product
-        Product product = new Product();
-        product.setDescription("Spring Framework Guru Shirt");
-        product.setPrice(new BigDecimal("18.95"));
-        product.setProductId("1234");
+        Product product = Product.newBuilder()
+                .productId("1234")
+                .description("Spring Framework Shirt")
+                .price(new BigDecimal("18.95"))
+                .build();
 
         //save product, verify has ID value after save
         assertNull(product.getId()); //null before save
