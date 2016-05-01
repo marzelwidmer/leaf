@@ -9,5 +9,6 @@ import org.springframework.data.repository.CrudRepository;
  */
 // tag::repository[]
 public interface ProductRepository extends CrudRepository<Product, Integer> {
+    Product findByProductId(String id);
 // end::repository[]
 }

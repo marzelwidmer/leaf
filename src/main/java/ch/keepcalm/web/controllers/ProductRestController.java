@@ -52,6 +52,12 @@ public class ProductRestController {
     }
 
 
+    @RequestMapping(value = "/products/{id}", method = RequestMethod.GET)
+    public Product showProduct(@PathVariable Integer id){
+        return productService.getProductById(id);
+    }
+
+
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(value = {EmptyResultDataAccessException.class, EntityNotFoundException.class})

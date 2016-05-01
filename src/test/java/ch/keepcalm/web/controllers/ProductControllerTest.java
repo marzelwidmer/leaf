@@ -1,48 +1,59 @@
 package ch.keepcalm.web.controllers;
 
-import ch.keepcalm.web.config.RepositoryConfiguration;
+import ch.keepcalm.web.LeafApplication;
 import ch.keepcalm.web.domain.Product;
 import ch.keepcalm.web.repositories.ProductRepository;
-import com.jayway.restassured.RestAssured;
-import org.apache.http.HttpStatus;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.TestRestTemplate;
+import org.springframework.boot.test.WebIntegrationTest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.web.client.RestTemplate;
 
 import java.math.BigDecimal;
+import java.net.URI;
 
-import static com.jayway.restassured.RestAssured.*;
-import static org.hamcrest.Matchers.*;
+import static com.jayway.restassured.RestAssured.get;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 /**
- * Created by marcelwidmer on 11/04/16.
+ * Created by marcelwidmer on 14/04/16.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = RepositoryConfiguration.class)
-@WebAppConfiguration
-@IntegrationTest
+@SpringApplicationConfiguration(classes = {LeafApplication.class})
+@WebIntegrationTest
 @ActiveProfiles("junit, junit-integration")
-public class ProductRestControllerIT {
+public class ProductControllerTest {
+
+
+    @Value("${local.server.port}")
+    int port;
+
+    RestTemplate restTemplate = new TestRestTemplate();
 
     private static final String DESCRIPTION_FIELD = "description";
-    private static final String PRODUCTS_RESOURCE = "/api/products";
+    private static final String PRODUCTS_RESOURCE = "/api/products/";
     private static final String PRODUCT_RESOURCE = "/api/products/{id}";
-    private static final int NON_EXISTING_ID = 999;
+    private static final String FIRST_PRODUCT_ID = "1234";
+    private static final String FIRST_PRODUCT_PRICE = "18.95";
     private static final String FIRST_PRODUCT_DESCRIPTION = "First product";
     private static final String SECOND_PRODUCT_DESCRIPTION = "Second product";
     private static final String THIRD_PRODUCT_DESCRIPTION = "Third product";
 
+
     private static final Product FIRST_ITEM = Product.newBuilder()
-            .productId("1234")
+            .productId(FIRST_PRODUCT_ID)
             .description(FIRST_PRODUCT_DESCRIPTION)
-            .price(new BigDecimal("18.95"))
+            .price(new BigDecimal(FIRST_PRODUCT_PRICE))
             .build();
 
 
@@ -60,6 +71,7 @@ public class ProductRestControllerIT {
             .description(THIRD_PRODUCT_DESCRIPTION)
             .build();
 
+
     private ProductRepository repository;
 
     @Autowired
@@ -67,8 +79,7 @@ public class ProductRestControllerIT {
         this.repository = productRepository;
     }
 
-    @Value("${local.server.port}")
-    private int serverPort;
+
     private Product firstItem;
     private Product secondItem;
 
@@ -77,16 +88,40 @@ public class ProductRestControllerIT {
         repository.deleteAll();
         firstItem = repository.save(FIRST_ITEM);
         secondItem = repository.save(SECOND_ITEM);
-        RestAssured.port = serverPort;
     }
 
+
     @Test
-    public void getItemsShouldReturnBothItems() {
+    public void testRequest() throws Exception {
+        URI uri = URI.create("http://localhost:" + port + PRODUCTS_RESOURCE);
+
+        ResponseEntity<String> response = restTemplate.getForEntity(uri, String.class);
+        assertThat(response.getStatusCode(), is(equalTo(HttpStatus.OK)));
+
+        ResponseEntity<String> responseOne = restTemplate.getForEntity(uri + String.valueOf(firstItem.getId()), String.class);
+        assertThat(responseOne.getStatusCode(), is(equalTo(HttpStatus.OK)));
+        System.out.println(responseOne);
+
+        get(uri + String.valueOf(firstItem.getId())).
+                then().
+                assertThat().body("productId", equalTo(FIRST_PRODUCT_ID)).
+                and().
+                assertThat().body("description", equalTo(FIRST_PRODUCT_DESCRIPTION)).
+                and().
+                assertThat().body("imageUrl", equalTo(null));
+        // TODO: 01/05/16   price test.
+                /*
+                and().
+               assertThat().body("price", is(FIRST_PRODUCT_PRICE));
+                */
+
+
+/*
         when()
                 .get(PRODUCTS_RESOURCE)
                 .then()
-                .statusCode(HttpStatus.SC_OK)
+                .statusCode(HttpStatus.OK)
                 .body(DESCRIPTION_FIELD, hasItems(FIRST_PRODUCT_DESCRIPTION, SECOND_PRODUCT_DESCRIPTION));
+*/
     }
-
 }
