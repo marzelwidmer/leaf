@@ -32,7 +32,7 @@ import static org.hamcrest.Matchers.is;
 @SpringApplicationConfiguration(classes = {LeafApplication.class})
 @WebIntegrationTest
 @ActiveProfiles("junit, junit-integration")
-public class ProductControllerTest {
+public class ProductRestControllerTestMock {
 
 
     @Value("${local.server.port}")
