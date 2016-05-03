@@ -108,12 +108,12 @@ public class ProductRestControllerTestMock {
                 and().
                 assertThat().body("description", equalTo(FIRST_PRODUCT_DESCRIPTION)).
                 and().
-                assertThat().body("imageUrl", equalTo(null));
+                assertThat().body("imageUrl", equalTo(null)).
         // TODO: 01/05/16   price test.
-                /*
+
                 and().
-               assertThat().body("price", is(FIRST_PRODUCT_PRICE));
-                */
+               assertThat().body("price", is(new BigDecimal(FIRST_PRODUCT_PRICE).floatValue()));
+
 
 
 /*
