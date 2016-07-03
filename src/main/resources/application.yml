@@ -1,0 +1,66 @@
+# default profile
+spring:
+  profiles.active: dev
+  application:
+          name: leaf
+  # Database
+  datasource:
+    initialize: false
+    # keep database connection alive
+    test-on-borrow: true
+    validation-query: SELECT 1 FROM DUAL
+  jpa:
+    generate-ddl: false
+    show-sql: false
+    hibernate.ddl-auto: validate
+
+# Thymeleaf
+  thymeleaf.cache: false
+
+# I18N (MessageSourceAutoConfiguration)
+  messages:
+    basename: i18n/messages
+    cache-seconds: -1
+    encoding: UTF-8
+
+# Infos Build
+info.build:
+  artifact: @project.artifactId@
+  name: @project.name@
+  description: @project.description@
+  version: @project.version@
+
+# Management
+management:
+  address: ${server.address}
+  port: ${server.port}
+  context-path: /manage
+  health.db.enabled: true
+
+# Endpoints
+endpoints.health:
+  enabled: true
+  sensitive: false
+
+# Flyway Database Migration
+flyway:
+  enabled: true
+
+# Logging
+logging:
+  level.: error
+  level.org.thymeleaf: error
+  level.org.springframework.boot: error
+  level.org.springframework.web: error
+  level.org.hibernate: error
+
+# Server
+server:
+  address: 127.0.0.1
+  port: 8080
+
+# Tomcat
+  tomcat:
+    max-http-header-size: 16380
+    compression: on
+    compressableMimeTypes: application/json,application/xml,text/html,text/xml,text/plain

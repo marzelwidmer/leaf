@@ -1,7 +1,4 @@
-== Architecture
-
 === Context
-
 [ditaa, "context-diagram"]
 ....
 +--------------+    HTTP      +--------------+      +-----+

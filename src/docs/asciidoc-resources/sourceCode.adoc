@@ -3,7 +3,7 @@
 ==== ProductController
 [source,java]
 ----
-include::{sourcedir}/ch/keepcalm/web/controllers/ProductController.java[tags=controller,indent=0]
+include::{sourcedir}/ch/keepcalm/web/controllers/ProductController.java[tags=ProductController,indent=0]
 ----
 
 

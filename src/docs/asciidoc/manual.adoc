@@ -1,44 +1,97 @@
-= Leaf Application {projectversion}
+= {project-name} Application {project-version}
 Marcel Widmer <marzelwidmer@gmail.com>
-2015-03-23
-:revnumber: {project-version}
-:example-caption!:
-ifndef::imagesdir[:imagesdir: images]
-ifndef::sourcedir[:sourcedir: ../java]
-ifndef::testdir[:testdir: ../../test]
-
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
 :toc: left
 :toclevels: 4
-:icons: font
+:sectlinks:
 
-== Introduction
-The Leaf Application features.
+ifndef::imagesdir[:imagesdir: images]
+ifndef::sourcedir[:sourcedir: ../../main/java]
+ifndef::testdir[:testdir: ../../test/java]
 
-* SpringBoot
-* Thymeleaf
-* Spring-Data
+:spring-boot-ref-guide: http://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/
+:spring-boot-ref-guide-executable-jar: http://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#getting-started-first-application-executable-jar
 
 
-== Introduction
-NOTE: This is amazing for a deployment you only have to copy the JAR file to your server and start it with the java -jar command.
-`
 
+[introduction]
+= Introduction
+
+[architecture]
+== Architecture
 include::architecture.adoc[]
+
+
+
+[[overview]]
+= Overview
 include::installation.adoc[]
+
+
+[[URL]]
+== URL
+=== Monitoring
+    /monitor/
+
+=== h2 Console
+    /console/
+
+
+[[overview-http-verbs]]
+== HTTP verbs
+{project-name} tries to adhere as closely as possible to standard HTTP and REST conventions in its
+include::http-verbs.adoc[]
+
+[[overview-http-status-codes]]
+== HTTP status codes
+{project-name}tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP status codes.
+include::http-status-codes.adoc[]
+
+[[resources]]
+= Resources
+
+
+[[resources-person]]
+== Person
+The Person resource is used to create, modify and list people.
+
+[[resource-people-list]]
+=== Listing people
+A `GET` request lists all of the service's people.
+include::{snippets}/list-people/response-fields.adoc[]
+
+==== Example request
+include::{snippets}/list-people/curl-request.adoc[]
+
+==== Example response
+include::{snippets}/list-people/http-response.adoc[]
+
+
+==== Request structure
+include::{snippets}/create-person/request-fields.adoc[]
+
+==== Example request
+include::{snippets}/update-person/curl-request.adoc[]
+
+==== Example response
+include::{snippets}/update-person/http-response.adoc[]
+
+
+
+
+[[sourceCode]]
+= Source Code
 include::sourceCode.adoc[]
+
+[[releaseNotes]]
+= Release Notes
 include::releaseNotes.adoc[]
 
 
-== Attributes
 
-.Built-in
-asciidoctor-version:: {asciidoctor-version}
-safe-mode-name:: {safe-mode-name}
-docdir:: {docdir}
-docfile:: {docfile}
-imagesdir:: {imagesdir}
 
-.Custom
-project-version:: {project-version}
-sourcedir:: {sourcedir}
-endpoint-url:: {endpoint-url}
+
+

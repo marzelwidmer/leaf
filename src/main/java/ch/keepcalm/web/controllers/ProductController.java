@@ -15,7 +15,7 @@ import javax.validation.Valid;
 /**
  * Created by marcelwidmer on 22/03/16.
  */
-// tag::controller[]
+// tag::ProductController[]
 @Controller
 public class ProductController {
 
@@ -101,5 +101,5 @@ public class ProductController {
         return "redirect:/products";
     }
 }
-// end::controller[]
+// end::ProductController[]
 
