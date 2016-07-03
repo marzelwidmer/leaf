@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @Configuration
 @EnableAutoConfiguration
-@EntityScan(basePackages = {"ch.keepcalm.web.domain"})
+@EntityScan(basePackages = {"ch.keepcalm.web.model"})
 @EnableJpaRepositories(basePackages = {"ch.keepcalm.web.repositories"})
 @EnableTransactionManagement
 public class RepositoryConfiguration {

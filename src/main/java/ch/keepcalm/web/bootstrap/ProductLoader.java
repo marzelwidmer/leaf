@@ -1,7 +1,7 @@
 package ch.keepcalm.web.bootstrap;
 
 
-import ch.keepcalm.web.domain.Product;
+import ch.keepcalm.web.model.Product;
 import ch.keepcalm.web.repositories.ProductRepository;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

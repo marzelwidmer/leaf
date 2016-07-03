@@ -21,7 +21,6 @@ public class ProductController {
 
 
     private ProductService productService;
-
     @Autowired
     public void setProductService(ProductService productService) {
         this.productService = productService;
@@ -50,7 +49,7 @@ public class ProductController {
             return "productform";
         }
         productService.saveProduct(product);
-        return "redirect:/product/" + product.getId();
+        return "redirect:/product/" + product.getProductId();
     }
 
 

@@ -1,7 +1,7 @@
 package ch.keepcalm.web.repositories;
 
 import ch.keepcalm.web.config.RepositoryConfiguration;
-import ch.keepcalm.web.domain.Product;
+import ch.keepcalm.web.model.Product;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

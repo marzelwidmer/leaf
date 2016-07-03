@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.List;
 
 /**
  * Created by marcelwidmer on 11/04/16.
@@ -29,7 +30,35 @@ public class ProductRestController {
         this.productService = productService;
     }
 
-    @RequestMapping(value = "/product/{id}", method = RequestMethod.PUT)
+
+    /**
+     * List All Products
+     * @return
+     */
+    @RequestMapping(value = "/products", method = RequestMethod.GET)
+    public List<Product> list(){
+        return productService.listAllProducts();
+    }
+
+
+    /**
+     * Get One Product
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "/products/{id}", method = RequestMethod.GET)
+    public Product showProduct(@PathVariable String id){
+        return productService.getProductByProductId(id);
+    }
+
+
+    /**
+     * Update One Product
+     * @param updatedProduct
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "/products/{id}", method = RequestMethod.PUT)
     public Product updateProduct(@RequestBody Product updatedProduct, @PathVariable Integer id) {
 
         Product product = Product.newBuilder()
@@ -43,23 +72,18 @@ public class ProductRestController {
     }
 
     /**
-     * List All
+     * Delete One Product
+     * @param product
      * @return
      */
-    @RequestMapping(value = "/products", method = RequestMethod.GET)
-    public Iterable<Product> list(){
-        return productService.listAllProducts();
+    @RequestMapping(value = "/products/", method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.CREATED)
+    public Product addProduct(@RequestBody Product product) {
+        return productService.saveProduct(product);
     }
 
 
-    @RequestMapping(value = "/products/{id}", method = RequestMethod.GET)
-    public Product showProduct(@PathVariable Integer id){
-        return productService.getProductById(id);
-    }
-
-
-
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+   @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(value = {EmptyResultDataAccessException.class, EntityNotFoundException.class})
     public void handleNotFound() {
     }

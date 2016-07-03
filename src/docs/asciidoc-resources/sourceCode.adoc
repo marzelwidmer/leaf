@@ -1,20 +1,23 @@
-=== Controllers
-==== ProductController
+= Source Code
+[[controllers]]
+== Controllers
+=== ProductController
 [source,java]
 ----
 include::{sourcedir}/ch/keepcalm/web/controllers/ProductController.java[tags=ProductController,indent=0]
 ----
 
-
-=== Services
-==== ProductService
+[[services]]
+== Services
+=== ProductService
 [source,java]
 ----
-include::{sourcedir}/ch/keepcalm/web/services/ProductServiceImpl.java[tags=service,indent=0]
+include::{sourcedir}/ch/keepcalm/web/services/ProductService.java[tags=ProductService,indent=0]
 ----
 
-=== Repositories
-==== ProductRepository
+[[repositories]]
+== Repositories
+=== ProductRepository
 ----
-include::{sourcedir}/ch/keepcalm/web/repositories/ProductRepository.java[tags=repository,indent=0]
+include::{sourcedir}/ch/keepcalm/web/repositories/ProductRepository.java[tags=ProductRepository,indent=0]
 ----

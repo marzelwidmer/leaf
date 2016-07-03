@@ -3,6 +3,7 @@ package ch.keepcalm.web.controllers;
 import ch.keepcalm.web.LeafApplication;
 import ch.keepcalm.web.domain.Product;
 import ch.keepcalm.web.repositories.ProductRepository;
+import ch.keepcalm.web.services.ProductService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -72,8 +73,13 @@ public class ProductRestControllerTestMock {
             .build();
 
 
-    private ProductRepository repository;
+    private ProductService productService;
+    @Autowired
+    public void setProductService(ProductService productService) {
+        this.productService = productService;
+    }
 
+    private ProductRepository repository;
     @Autowired
     public void setProductRepository(ProductRepository productRepository) {
         this.repository = productRepository;
@@ -86,8 +92,8 @@ public class ProductRestControllerTestMock {
     @Before
     public void setUp() {
         repository.deleteAll();
-        firstItem = repository.save(FIRST_ITEM);
-        secondItem = repository.save(SECOND_ITEM);
+        firstItem = productService.saveProduct(FIRST_ITEM);
+        secondItem = productService.saveProduct(SECOND_ITEM);
     }
 
 
@@ -98,17 +104,17 @@ public class ProductRestControllerTestMock {
         ResponseEntity<String> response = restTemplate.getForEntity(uri, String.class);
         assertThat(response.getStatusCode(), is(equalTo(HttpStatus.OK)));
 
-        ResponseEntity<String> responseOne = restTemplate.getForEntity(uri + String.valueOf(firstItem.getId()), String.class);
+        ResponseEntity<String> responseOne = restTemplate.getForEntity(uri + String.valueOf(firstItem.getProductId()), String.class);
         assertThat(responseOne.getStatusCode(), is(equalTo(HttpStatus.OK)));
         System.out.println(responseOne);
 
-        get(uri + String.valueOf(firstItem.getId())).
+        get(uri + String.valueOf(firstItem.getProductId())).
                 then().
                 assertThat().body("productId", equalTo(FIRST_PRODUCT_ID)).
                 and().
                 assertThat().body("description", equalTo(FIRST_PRODUCT_DESCRIPTION)).
                 and().
-                assertThat().body("imageUrl", equalTo(null)).
+                assertThat().body("imageUrl", equalTo("N/A")).
                 and().
                 assertThat().body("price", is(new BigDecimal(FIRST_PRODUCT_PRICE).floatValue()));
 

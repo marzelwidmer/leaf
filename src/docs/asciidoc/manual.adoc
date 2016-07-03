@@ -6,17 +6,44 @@ Marcel Widmer <marzelwidmer@gmail.com>
 :toc: left
 :toclevels: 4
 :sectlinks:
-
+:revnumber: {project-version}
+:revdate: {localdate}
 ifndef::imagesdir[:imagesdir: images]
 ifndef::sourcedir[:sourcedir: ../../main/java]
 ifndef::testdir[:testdir: ../../test/java]
 
-:spring-boot-ref-guide: http://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/
-:spring-boot-ref-guide-executable-jar: http://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#getting-started-first-application-executable-jar
+[[overview]]
+= Overview
+
+[[overview-http-verbs]]
+= HTTP verbs
+include::http-verbs.adoc[]
+
+[[overview-http-status-codes]]
+= HTTP status codes
+{project-name} tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP status codes.
+include::http-status-codes.adoc[]
+
+[[resources]]
+= Resources
+
+[[resources-person]]
+== Product
+The Product resource is used to create, modify and list product.
+
+[[resource-create-product]]
+=== Create product
+A `POST` request creates a new product.
+include::{snippets}/create-product/response-fields.adoc[]
+
+==== Example request
+include::{snippets}/create-product/curl-request.adoc[]
+
+==== Example response
+include::{snippets}/create-product/http-response.adoc[]
 
 
-[introduction]
-= Introduction
 
 [architecture]
 == Architecture
@@ -39,61 +66,11 @@ include::installation.adoc[]
     /console/
 
 
-
-[[overview-http-verbs]]
-= HTTP verbs
-{project-name} tries to adhere as closely as possible to standard HTTP and REST conventions in its
-include::http-verbs.adoc[]
-
-[[overview-http-status-codes]]
-= HTTP status codes
-{project-name}tries to adhere as closely as possible to standard HTTP and REST conventions in its
-use of HTTP status codes.
-include::http-status-codes.adoc[]
-
-[[resources]]
-= Resources
-
-[[resources-person]]
-== Person
-The Person resource is used to create, modify and list people.
-
-[[resource-people-list]]
-=== Listing people
-A `GET` request lists all of the service's people.
-include::{snippets}/list-people/response-fields.adoc[]
-
-==== Example request
-include::{snippets}/list-people/curl-request.adoc[]
-
-==== Example response
-include::{snippets}/list-people/http-response.adoc[]
-
-
-==== Request structure
-include::{snippets}/create-person/request-fields.adoc[]
-
-==== Example request
-include::{snippets}/update-person/curl-request.adoc[]
-
-==== Example response
-include::{snippets}/update-person/http-response.adoc[]
-
-
-
-
 [[sourceCode]]
-= Source Code
 include::sourceCode.adoc[]
 
 [[releaseNotes]]
-= Release Notes
 include::releaseNotes.adoc[]
-
-
-
-
-
 
 
 = Attributes
@@ -105,4 +82,3 @@ docfile:: {docfile}
 imagesdir:: {imagesdir}
 sourcedir:: {sourcedir}
 testdir:: {testdir}
-

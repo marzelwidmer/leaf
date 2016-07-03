@@ -1,4 +1,4 @@
-use of HTTP verbs.
+{project-name} tries to adhere as closely as possible to standard HTTP and REST conventions in its
 |===
 | Verb | Usage
 
