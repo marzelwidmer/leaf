@@ -15,7 +15,6 @@ ifndef::testdir[:testdir: ../../test/java]
 :spring-boot-ref-guide-executable-jar: http://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#getting-started-first-application-executable-jar
 
 
-
 [introduction]
 = Introduction
 
@@ -23,36 +22,37 @@ ifndef::testdir[:testdir: ../../test/java]
 == Architecture
 include::architecture.adoc[]
 
-
-
-[[overview]]
-= Overview
+[installation]
+== Installation
 include::installation.adoc[]
 
-
 [[URL]]
-== URL
+== Application URL
+[[landingpage]]
+=== Landing Page
+    /
+[[monitoring]]
 === Monitoring
     /monitor/
-
+[[h2console]]
 === h2 Console
     /console/
 
 
+
 [[overview-http-verbs]]
-== HTTP verbs
+= HTTP verbs
 {project-name} tries to adhere as closely as possible to standard HTTP and REST conventions in its
 include::http-verbs.adoc[]
 
 [[overview-http-status-codes]]
-== HTTP status codes
+= HTTP status codes
 {project-name}tries to adhere as closely as possible to standard HTTP and REST conventions in its
 use of HTTP status codes.
 include::http-status-codes.adoc[]
 
 [[resources]]
 = Resources
-
 
 [[resources-person]]
 == Person
@@ -94,4 +94,15 @@ include::releaseNotes.adoc[]
 
 
 
+
+
+= Attributes
+.Built-in
+asciidoctor-version:: {asciidoctor-version}
+safe-mode-name:: {safe-mode-name}
+docdir:: {docdir}
+docfile:: {docfile}
+imagesdir:: {imagesdir}
+sourcedir:: {sourcedir}
+testdir:: {testdir}
 

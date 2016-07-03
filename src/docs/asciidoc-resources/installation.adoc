@@ -1,27 +1,25 @@
-
-== Installation
 === Build Application:
  $ mvn package
 
 Copy the file {project-artifact-name}.jar anywhere on the server.
 The JAR already contains the configuration for all available environments.
-For more information please visit the  {spring-boot-ref-guide}[Spring Boot Reference Guide]
+For further information please visit the  {spring-boot-ref-guide}[Spring Boot Reference Guide]
 
 === Start Application
 ==== Default Profile
-Start application on command line. This profile support a H2 datbase.
-For more information please visit the {spring-boot-ref-guide-executable-jar}[Spring Boot Reference Guide] for more information.
+Start application on command line. The _default_ profile supports a H2 datbase.
+For more information please visit the {spring-boot-ref-guide-executable-jar}[Spring Boot Reference Guide] for further information.
 
-    $ java -jar
+    $ java -jar leaf-app.jar
 
-There are some other Spring Profiles
+There are additional Spring profiles available.
 
-=== Development Profile
-This profile support a PostgreSQL database.
+==== Development Profile
+The _dev_ profile supports a PostgreSQL database.
 
- $ java -jar -Dspring.profiles.active=local ...
+ $ java -jar -Dspring.profiles.active=local leaf-app.jar
 
-=== Profiles
+==== Profiles
 .Table -Dspring.profiles.active=
 |===
 |Profile | Database
@@ -31,5 +29,4 @@ This profile support a PostgreSQL database.
 
 |local
 |postgreSql
-
 |===

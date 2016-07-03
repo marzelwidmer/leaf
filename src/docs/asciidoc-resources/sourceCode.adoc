@@ -1,4 +1,3 @@
-== Source Code
 === Controllers
 ==== ProductController
 [source,java]
