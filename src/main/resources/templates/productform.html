@@ -11,7 +11,6 @@
     <div>
         <form class="form-horizontal" th:object="${product}" th:action="@{/product}" method="post">
             <input type="hidden" th:field="*{id}"/>
-            <input type="hidden" th:field="*{version}"/>
             <!-- product ID -->
             <div class="form-group">
                 <label class="col-sm-2 control-label">Product Id:</label>

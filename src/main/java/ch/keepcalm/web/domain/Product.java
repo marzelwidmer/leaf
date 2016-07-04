@@ -8,10 +8,13 @@ import java.math.BigDecimal;
  */
 public class Product {
 
+    private Integer Id;
     private String productId;
     private String description;
     private String imageUrl;
     private BigDecimal price;
+
+
 
     public Product() {
     }
@@ -24,6 +27,7 @@ public class Product {
     }
 
     private Product(Builder builder) {
+        Id = builder.Id;
         setProductId(builder.productId);
         setDescription(builder.description);
         setImageUrl(builder.imageUrl);
@@ -32,6 +36,13 @@ public class Product {
 
     public static Builder newBuilder() {
         return new Builder();
+    }
+    public Integer getId() {
+        return Id;
+    }
+
+    public void setId(Integer id) {
+        Id = id;
     }
 
     public String getProductId() {
@@ -67,7 +78,6 @@ public class Product {
     }
 
 
-
     /**
      * {@code Product} builder static inner class.
      */
@@ -76,6 +86,7 @@ public class Product {
         private String description;
         private String imageUrl;
         private BigDecimal price;
+        private Integer Id;
 
         private Builder() {
         }
@@ -131,6 +142,17 @@ public class Product {
          */
         public Product build() {
             return new Product(this);
+        }
+
+        /**
+         * Sets the {@code Id} and returns a reference to this Builder so that the methods can be chained together.
+         *
+         * @param val the {@code Id} to set
+         * @return a reference to this Builder
+         */
+        public Builder Id(Integer val) {
+            Id = val;
+            return this;
         }
     }
 }

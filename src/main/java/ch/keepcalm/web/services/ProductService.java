@@ -30,6 +30,7 @@ public class ProductService {
      */
     private Product convertToProduct(ch.keepcalm.web.model.Product model) {
         Product product = Product.newBuilder()
+                .Id(model.getId())
                 .productId(model.getProductId())
                 .description(((model.getDescription() == null) ? "N/A" : model.getDescription()))
                 .imageUrl(((model.getImageUrl() == null) ? "N/A" : model.getImageUrl()))
@@ -46,6 +47,7 @@ public class ProductService {
      */
     private ch.keepcalm.web.model.Product convertToModel(Product product) {
         ch.keepcalm.web.model.Product model = ch.keepcalm.web.model.Product.newBuilder()
+                .id(product.getId())
                 .productId(product.getProductId())
                 .description(product.getDescription())
                 .imageUrl(product.getImageUrl())

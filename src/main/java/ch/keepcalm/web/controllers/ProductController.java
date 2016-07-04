@@ -48,8 +48,7 @@ public class ProductController {
         if (bindingResult.hasErrors()) {
             return "productform";
         }
-        productService.saveProduct(product);
-        return "redirect:/product/" + product.getProductId();
+        return "redirect:/product/" + productService.saveProduct(product).getId();
     }
 
 

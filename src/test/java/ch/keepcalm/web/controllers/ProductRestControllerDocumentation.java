@@ -128,7 +128,8 @@ public class ProductRestControllerDocumentation {
                         fieldWithPath("[].price").description(PRODUCT_PRICE_DESCRIPTION)
                 } :
                 new FieldDescriptor[]{
-                        fieldWithPath("productId").description(PRODUCT_ID_DESCRIPTION),
+                        fieldWithPath("id").description(PRODUCT_ID_DESCRIPTION),
+                        fieldWithPath("productId").description(PRODUCT_PRODUCT_ID_DESCRIPTION),
                         fieldWithPath("description").description(PRODUCT_DESCRIPTION),
                         fieldWithPath("imageUrl").description(PRODUCT_IMAGE_URL_DESCRIPTION),
                         fieldWithPath("price").description(PRODUCT_PRICE_DESCRIPTION)
@@ -149,6 +150,8 @@ public class ProductRestControllerDocumentation {
     private static final String PRODUCT_PRICE_DESCRIPTION = "Product's price";
     private static final String PRODUCT_IMAGE_URL_DESCRIPTION = "Product's image URL";
     private static final String PRODUCT_DESCRIPTION = "Product's description";
-    private static final String PRODUCT_ID_DESCRIPTION = "Product's identifier";
+    private static final String PRODUCT_PRODUCT_ID_DESCRIPTION = "Product's identifier";
+    private static final String PRODUCT_ID_DESCRIPTION = "Product's entity identifier";
+
 
 }

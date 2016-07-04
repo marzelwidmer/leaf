@@ -86,14 +86,12 @@ public class Product {
     }
 
 
-
     private Product(Builder builder) {
         setId(builder.id);
-        setVersion(builder.version);
-        setProductId(builder.productId);
         setDescription(builder.description);
         setImageUrl(builder.imageUrl);
         setPrice(builder.price);
+        setProductId(builder.productId);
     }
 
     public static Builder newBuilder() {
