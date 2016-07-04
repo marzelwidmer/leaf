@@ -16,11 +16,11 @@ ifndef::testdir[:testdir: ../../test/java]
 = Overview
 
 [[overview-http-verbs]]
-= HTTP verbs
+== HTTP verbs
 include::http-verbs.adoc[]
 
 [[overview-http-status-codes]]
-= HTTP status codes
+== HTTP status codes
 {project-name} tries to adhere as closely as possible to standard HTTP and REST conventions in its
 use of HTTP status codes.
 include::http-status-codes.adoc[]
@@ -67,9 +67,11 @@ include::installation.adoc[]
 
 
 [[sourceCode]]
+= Source Code
 include::sourceCode.adoc[]
 
 [[releaseNotes]]
+= Release Notes
 include::releaseNotes.adoc[]
 
 

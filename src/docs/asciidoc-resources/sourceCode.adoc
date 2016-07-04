@@ -1,4 +1,3 @@
-= Source Code
 [[controllers]]
 == Controllers
 === ProductController

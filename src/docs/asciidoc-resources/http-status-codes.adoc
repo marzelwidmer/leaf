@@ -1,4 +1,5 @@
-RESTful notes tries to adhere as closely as possible to standard HTTP and REST conventions in its use of HTTP status codes.
+{project-name} tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP status codes.
 
 |===
 | Status code | Usage
