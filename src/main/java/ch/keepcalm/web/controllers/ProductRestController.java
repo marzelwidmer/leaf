@@ -34,9 +34,6 @@ public class ProductRestController {
 
 
 
-
-
-
     /**
      * List All Products
      * @return
@@ -52,12 +49,11 @@ public class ProductRestController {
      * @param id
      * @return
      */
-    @RequestMapping(value = "/products/{id}", method = RequestMethod.GET)
+  /*  @RequestMapping(value = "/product/{id}", method = RequestMethod.GET)
     public Product showProduct(@PathVariable String id){
         return productService.getProductByProductId(id);
     }
-
-    /**
+*/    /**
      *  TODO: 10/07/16 HATEOAS
      * @param productId
      * @return
@@ -89,7 +85,7 @@ public class ProductRestController {
      * @param id
      * @return
      */
-    @RequestMapping(value = "/products/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/product/{id}", method = RequestMethod.PUT)
     public Product updateProduct(@RequestBody Product updatedProduct, @PathVariable Integer id) {
 
         Product product = Product.newBuilder()
@@ -107,7 +103,7 @@ public class ProductRestController {
      * @param product
      * @return
      */
-    @RequestMapping(value = "/products/", method = RequestMethod.POST)
+    @RequestMapping(value = "/product/", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public Product addProduct(@RequestBody Product product) {
         return productService.saveProduct(product);

@@ -21,8 +21,11 @@ public class ProductResourceAssembler extends ResourceAssemblerSupport<Product, 
      * @param product
      * @return
      */
+    @Override
     public ProductResource toResource(Product product) {
-        ProductResource productResource = createResourceWithId(product.getId(), product); // adds a "self" link
+        // TODO: 10/07/16 self URL is wrong...
+        ProductResource productResource = createResourceWithId("product/" + product.getId(), product); // adds a "self" link
+
         // TODO: copy properties from product to productResource
         productResource.setPrice(product.getPrice());
         productResource.setImageUrl(product.getImageUrl());
