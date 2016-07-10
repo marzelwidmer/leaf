@@ -36,7 +36,7 @@ public class ProductRestController {
      * @return
      */
     @RequestMapping(value = "/products", method = RequestMethod.GET)
-    public List<Product> list(){
+    public List<Product> showAllProduct(){
         return productService.listAllProducts();
     }
 
