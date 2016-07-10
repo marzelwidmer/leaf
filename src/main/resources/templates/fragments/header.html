@@ -22,7 +22,7 @@
                         <div class="row text-right" th:if="${@environment.getActiveProfiles()[0] != 'production'}">
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a href="#" th:href="@{/console}" target="_blank">h2 console</a></li>
-                                <li><a href="#" th:href="@{/api/products/}" target="_blank">api/products</a></li>
+                                <li><a href="#" th:href="@{/api/}" target="_blank">api</a></li>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span th:text="#{i18n.language}"></span> <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
