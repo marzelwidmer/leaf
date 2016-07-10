@@ -23,7 +23,7 @@ import java.util.List;
  * Created by marcelwidmer on 11/04/16.
  */
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/products")
 public class ProductRestController {
 
     private ProductResourceService service;
@@ -39,7 +39,7 @@ public class ProductRestController {
      * @param productId
      * @return
      */
-    @RequestMapping(value = "/product/{productId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{productId}", method = RequestMethod.GET)
     public HttpEntity<ProductResource> findOne(@PathVariable("productId") Integer productId) {
         ProductResource productResource = service.findOne(productId);
         return new ResponseEntity<>(productResource, HttpStatus.OK);
@@ -50,7 +50,7 @@ public class ProductRestController {
      *
      * @return
      */
-    @RequestMapping(value = "/products", method = RequestMethod.GET)
+    @RequestMapping(value = "", method = RequestMethod.GET)
     public ResponseEntity<List<ProductResource>> showAll() {
         List<ProductResource> productResources = service.listAll();
         return new ResponseEntity<List<ProductResource>>(productResources, HttpStatus.OK);
@@ -63,7 +63,7 @@ public class ProductRestController {
      * @param id
      * @return
      */
-   /* @RequestMapping(value = "/product/{id}", method = RequestMethod.PUT)
+   /* @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public Product updateProduct(@RequestBody Product updatedProduct, @PathVariable Integer id) {
 
         Product product = Product.newBuilder()
@@ -82,7 +82,7 @@ public class ProductRestController {
      * @param product
      * @return
      */
-   /* @RequestMapping(value = "/product/", method = RequestMethod.POST)
+   /* @RequestMapping(value = "", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public Product addProduct(@RequestBody Product product) {
         return productResourceService.saveProduct(product);
