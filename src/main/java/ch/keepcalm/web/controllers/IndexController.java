@@ -26,8 +26,8 @@ public class IndexController {
     )
     public HttpEntity<List<Link>> showLinks() {
 
-
         List<Link> links = new ArrayList<Link>();
+        Link self = linkTo(IndexController.class).withSelfRel();
         Link product = linkTo(methodOn(ProductRestController.class).showAllProduct()).withRel("products");
 
 
@@ -38,8 +38,9 @@ public class IndexController {
         Link pagedResources = linkTo(methodOn(PersonController.class).showAllPaged()).withRel("peoplePaged");
         Link search = linkTo(methodOn(PersonController.class).searchPersonForm()).withRel("search");
 */
-        //links.add(search);
+        links.add(self);
         links.add(product);
+        //links.add(search);
         /*links.add(person);
         links.add(products);
         links.add(personProducts);
