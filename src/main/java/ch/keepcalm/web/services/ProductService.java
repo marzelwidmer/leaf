@@ -61,7 +61,10 @@ public class ProductService {
     }
 
 
+
     /**
+     * TODO: 10/07/16 HATEOAS
+     * Convert model to Resource
      *
      * @param productId
      * @return
@@ -72,6 +75,21 @@ public class ProductService {
         ProductResource productResource = productResourceAssembler.toResource(convertToProduct(model));
         return productResource;
     }
+
+    /**
+     * TODO: 10/07/16 HATEOAS
+     * Convert model to resource
+     *
+     * @return
+     */
+    public List<ProductResource> listAll() {
+        List<ProductResource> products = new ArrayList<ProductResource>();
+        for (ch.keepcalm.web.model.Product model : productRepository.findAll()) {
+            products.add(productResourceAssembler.toResource(convertToProduct(model)));
+        }
+        return products;
+    }
+
 
 
     public List<Product> listAllProducts() {

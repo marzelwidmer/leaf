@@ -41,13 +41,10 @@ public class ProductRestController {
      * List All Products
      * @return
      */
-    @RequestMapping(value = "/products", method = RequestMethod.GET)
+   /* @RequestMapping(value = "/products", method = RequestMethod.GET)
     public List<Product> showAllProduct(){
-
         return productService.listAllProducts();
-    }
-
-
+    }*/
 
 
     /**
@@ -60,11 +57,29 @@ public class ProductRestController {
         return productService.getProductByProductId(id);
     }
 
+    /**
+     *  TODO: 10/07/16 HATEOAS
+     * @param productId
+     * @return
+     */
     @RequestMapping(value="/product/{productId}", method=RequestMethod.GET)
     public HttpEntity<ProductResource> findOne(@PathVariable("productId") Integer productId) {
         ProductResource productResource = productService.findOne(productId);
         return new ResponseEntity<>(productResource, HttpStatus.OK);
     }
+
+    /**
+     * TODO: 10/07/16 HATEOAS
+     * @return
+     */
+    @RequestMapping(value="/products", method=RequestMethod.GET)
+    public ResponseEntity<List<ProductResource>> showAll() {
+        List<ProductResource> productResources = productService.listAll();
+        return new ResponseEntity<List<ProductResource>>(productResources, HttpStatus.OK);
+    }
+
+
+
 
 
 

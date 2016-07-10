@@ -28,7 +28,7 @@ public class IndexController {
 
         List<Link> links = new ArrayList<Link>();
         Link self = linkTo(IndexController.class).withSelfRel();
-        Link product = linkTo(methodOn(ProductRestController.class).showAllProduct()).withRel("products");
+        Link product = linkTo(methodOn(ProductRestController.class).showAll()).withRel("products");
 
 
        /* Link person = linkTo(methodOn(PersonController.class).show(1L)).withRel("person");
