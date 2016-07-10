@@ -4,6 +4,7 @@ import ch.keepcalm.web.domain.Product;
 import ch.keepcalm.web.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
@@ -31,14 +33,21 @@ public class ProductRestController {
     }
 
 
+
+
+
+
     /**
      * List All Products
      * @return
      */
     @RequestMapping(value = "/products", method = RequestMethod.GET)
     public List<Product> showAllProduct(){
+
         return productService.listAllProducts();
     }
+
+
 
 
     /**
@@ -50,6 +59,13 @@ public class ProductRestController {
     public Product showProduct(@PathVariable String id){
         return productService.getProductByProductId(id);
     }
+
+    @RequestMapping(value="/product/{productId}", method=RequestMethod.GET)
+    public HttpEntity<ProductResource> findOne(@PathVariable("productId") Integer productId) {
+        ProductResource productResource = productService.findOne(productId);
+        return new ResponseEntity<>(productResource, HttpStatus.OK);
+    }
+
 
 
     /**

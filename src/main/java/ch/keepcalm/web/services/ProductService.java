@@ -1,9 +1,12 @@
 package ch.keepcalm.web.services;
 
+import ch.keepcalm.web.controllers.ProductResource;
+import ch.keepcalm.web.controllers.ProductResourceAssembler;
 import ch.keepcalm.web.domain.Product;
 import ch.keepcalm.web.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,10 +20,12 @@ public class ProductService {
 
 
     private ProductRepository productRepository;
+    private ProductResourceAssembler productResourceAssembler;
 
     @Autowired
-    public void setProductRepository(ProductRepository productRepository) {
+    public void setProductRepository(ProductRepository productRepository, ProductResourceAssembler productResourceAssembler) {
         this.productRepository = productRepository;
+        this.productResourceAssembler = productResourceAssembler;
     }
 
     /**
@@ -53,6 +58,19 @@ public class ProductService {
                 .imageUrl(product.getImageUrl())
                 .price(product.getPrice()).build();
         return model;
+    }
+
+
+    /**
+     *
+     * @param productId
+     * @return
+     */
+    @Transactional
+    public ProductResource findOne(Integer productId) {
+        ch.keepcalm.web.model.Product model = productRepository.findOne(productId);
+        ProductResource productResource = productResourceAssembler.toResource(convertToProduct(model));
+        return productResource;
     }
 
 
