@@ -9,10 +9,18 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class ProductResourceAssembler extends ResourceAssemblerSupport<Product, ProductResource> {
+    /**
+     * Constructor
+     */
     public ProductResourceAssembler() {
         super(ProductRestController.class, ProductResource.class);
     }
 
+    /**
+     * Convert domain product to resource product
+     * @param product
+     * @return
+     */
     public ProductResource toResource(Product product) {
         ProductResource productResource = createResourceWithId(product.getId(), product); // adds a "self" link
         // TODO: copy properties from product to productResource
