@@ -1,12 +1,10 @@
 package ch.keepcalm.web.services;
 
-import ch.keepcalm.web.api.ProductResource;
 import ch.keepcalm.web.api.ProductResourceAssembler;
 import ch.keepcalm.web.domain.Product;
 import ch.keepcalm.web.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,38 +57,6 @@ public class ProductService {
                 .price(product.getPrice()).build();
         return model;
     }
-
-
-
-    /**
-     * TODO: 10/07/16 HATEOAS
-     * Convert model to Resource
-     *
-     * @param productId
-     * @return
-     */
-    @Transactional
-    public ProductResource findOne(Integer productId) {
-        ch.keepcalm.web.model.Product model = productRepository.findOne(productId);
-        ProductResource productResource = productResourceAssembler.toResource(convertToProduct(model));
-        return productResource;
-    }
-
-    /**
-     * TODO: 10/07/16 HATEOAS
-     * Convert model to resource
-     *
-     * @return
-     */
-    public List<ProductResource> listAll() {
-        List<ProductResource> products = new ArrayList<ProductResource>();
-        for (ch.keepcalm.web.model.Product model : productRepository.findAll()) {
-            products.add(productResourceAssembler.toResource(convertToProduct(model)));
-        }
-        return products;
-    }
-
-
 
     public List<Product> listAllProducts() {
         List<Product> products = new ArrayList<Product>();

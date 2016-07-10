@@ -1,11 +1,13 @@
 package ch.keepcalm.web.api;
 
 import ch.keepcalm.web.domain.Product;
+import ch.keepcalm.web.services.ProductResourceService;
 import ch.keepcalm.web.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.http.ResponseEntity;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
@@ -25,37 +26,35 @@ import java.util.List;
 @RequestMapping("/api")
 public class ProductRestController {
 
-    private ProductService productService;
+    private ProductResourceService service;
 
     @Autowired
-    public void setProductService(ProductService productService) {
-        this.productService = productService;
+    public void setProductService(ProductResourceService service) {
+        this.service = service;
     }
 
     /**
-     *  TODO: 10/07/16 HATEOAS
+     * TODO: 10/07/16 HATEOAS
+     *
      * @param productId
      * @return
      */
-    @RequestMapping(value="/product/{productId}", method=RequestMethod.GET)
+    @RequestMapping(value = "/product/{productId}", method = RequestMethod.GET)
     public HttpEntity<ProductResource> findOne(@PathVariable("productId") Integer productId) {
-        ProductResource productResource = productService.findOne(productId);
+        ProductResource productResource = service.findOne(productId);
         return new ResponseEntity<>(productResource, HttpStatus.OK);
     }
 
     /**
      * TODO: 10/07/16 HATEOAS
+     *
      * @return
      */
-    @RequestMapping(value="/products", method=RequestMethod.GET)
+    @RequestMapping(value = "/products", method = RequestMethod.GET)
     public ResponseEntity<List<ProductResource>> showAll() {
-        List<ProductResource> productResources = productService.listAll();
+        List<ProductResource> productResources = service.listAll();
         return new ResponseEntity<List<ProductResource>>(productResources, HttpStatus.OK);
     }
-
-
-
-
 
 
     /**
@@ -64,7 +63,7 @@ public class ProductRestController {
      * @param id
      * @return
      */
-    @RequestMapping(value = "/product/{id}", method = RequestMethod.PUT)
+   /* @RequestMapping(value = "/product/{id}", method = RequestMethod.PUT)
     public Product updateProduct(@RequestBody Product updatedProduct, @PathVariable Integer id) {
 
         Product product = Product.newBuilder()
@@ -74,22 +73,21 @@ public class ProductRestController {
                 .price(updatedProduct.getPrice())
                 .build();
 
-        return productService.saveProduct(product);
-    }
+        return productResourceService.saveProduct(product);
+    }*/
 
     /**
      * Delete One Product
+     *
      * @param product
      * @return
      */
-    @RequestMapping(value = "/product/", method = RequestMethod.POST)
+   /* @RequestMapping(value = "/product/", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public Product addProduct(@RequestBody Product product) {
-        return productService.saveProduct(product);
-    }
-
-
-   @ResponseStatus(HttpStatus.BAD_REQUEST)
+        return productResourceService.saveProduct(product);
+    }*/
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(value = {EmptyResultDataAccessException.class, EntityNotFoundException.class})
     public void handleNotFound() {
     }
