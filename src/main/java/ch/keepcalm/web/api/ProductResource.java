@@ -1,4 +1,4 @@
-package ch.keepcalm.web.controllers;
+package ch.keepcalm.web.api;
 
 import org.springframework.hateoas.ResourceSupport;
 

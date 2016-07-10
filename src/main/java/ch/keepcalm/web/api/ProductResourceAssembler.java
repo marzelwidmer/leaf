@@ -1,4 +1,4 @@
-package ch.keepcalm.web.controllers;
+package ch.keepcalm.web.api;
 
 import ch.keepcalm.web.domain.Product;
 import org.springframework.hateoas.mvc.ResourceAssemblerSupport;

@@ -1,4 +1,4 @@
-package ch.keepcalm.web.controllers;
+package ch.keepcalm.web.api;
 
 import ch.keepcalm.web.domain.Product;
 import ch.keepcalm.web.services.ProductService;
@@ -32,28 +32,7 @@ public class ProductRestController {
         this.productService = productService;
     }
 
-
-
     /**
-     * List All Products
-     * @return
-     */
-   /* @RequestMapping(value = "/products", method = RequestMethod.GET)
-    public List<Product> showAllProduct(){
-        return productService.listAllProducts();
-    }*/
-
-
-    /**
-     * Get One Product
-     * @param id
-     * @return
-     */
-  /*  @RequestMapping(value = "/product/{id}", method = RequestMethod.GET)
-    public Product showProduct(@PathVariable String id){
-        return productService.getProductByProductId(id);
-    }
-*/    /**
      *  TODO: 10/07/16 HATEOAS
      * @param productId
      * @return

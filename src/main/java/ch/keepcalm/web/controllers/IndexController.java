@@ -1,6 +1,7 @@
 package ch.keepcalm.web.controllers;
 
 
+import ch.keepcalm.web.api.ProductRestController;
 import org.springframework.hateoas.Link;
 import org.springframework.http.HttpEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
