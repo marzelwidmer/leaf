@@ -53,7 +53,7 @@ logging:
   level.org.springframework.boot: error
   level.org.springframework.web: error
   level.org.hibernate: error
-  file: log/leaf.log
+  file: log/application.log
 
 # Server
 server:
